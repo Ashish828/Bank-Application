@@ -1,0 +1,58 @@
+Get the Total Transactions done in each Bank
+--------------------------------------------
+/*--------------Amount--------------*/
+SELECT bank.name as 'Bank Name', sum(transaction.amount) as 'Total Transactions Amount'
+  FROM bank
+  INNER JOIN account
+  ON bank.id = account.bankId
+  INNER JOIN transaction
+  ON account.id = transaction.accountID
+  GROUP BY (bank.name);
+  /*--------------Count--------------*/
+  SELECT bank.name as 'Bank Name', count(transaction.amount) as 'Total Transactions'
+  FROM bank
+  INNER JOIN account
+  ON bank.id = account.bankId
+  INNER JOIN transaction
+  ON account.id = transaction.accountID
+  GROUP BY (bank.name);
+
+Get the sum of withdraw and debit transactions of each Bank
+-----------------------------------------------------------
+SELECT bank.name as 'Bank Name', transaction.type, sum(transaction.amount) as 'Total Transactions Amount'
+  FROM bank
+  INNER JOIN account
+  ON bank.id = account.bankId
+  INNER JOIN transaction
+  ON account.id = transaction.accountID
+  GROUP BY bank.name, transaction.type;
+  
+ Get the sum of withdraw and debit transactions of each bank per date
+ --------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

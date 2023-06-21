@@ -1,0 +1,25 @@
+Display data seperately
+-----------------------
+select * from bank;
+select * from account;
+select * from customer;
+select * from transaction;
+
+Display User details and their account
+--------------------------------------
+select customer.id as customer_id, account.id as account_id,
+concat(first_name, " ", last_name) as full_name,
+email, address, phone_number,
+balance, pin from customer 
+INNER JOIN
+account
+ON account.customerID = customer.id;
+
+Display Accounts and its Transactions
+-------------------------------------
+select customerID, account.id as accountID, transaction.id as transactionID,
+pin, transaction.balance, amount, type, date
+from account 
+INNER JOIN
+transaction
+ON account.id = transaction.accountId;

@@ -1,0 +1,23 @@
+Insert into bank table
+-----------------------
+insert into bank(name) values('HDFC Bank'),
+('Indian Bank'),
+('Axis Bank');
+
+Insert into customer table
+--------------------------
+INSERT INTO customer(first_name, last_name, email, address, phone_number) 
+VALUES ('ashish', 'hameed', 'ash@gmail.com', 'xx, xxx, xxxxx', 9292929292),
+('shimmy', 'roy', 'shimmy@gmail.com', 'xx, xxx, xxxxx', 9393939393);
+
+Insert into account table
+-------------------------
+INSERT INTO account(balance, pin, bankId, customerID) 
+VALUES (10000, 1111, 1, 1),
+(10000, 2222, 1, 2);
+
+Insert into transaction table
+-----------------------------
+insert into transaction
+(accountId, balance, amount, type, date)
+values(1, 9000, 1000, 'DEBITED', NOW());

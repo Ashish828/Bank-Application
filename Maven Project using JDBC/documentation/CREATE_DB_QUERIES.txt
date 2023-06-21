@@ -1,0 +1,46 @@
+create a database
+-----------------
+create schema banking_system;
+use banking_system;
+
+create bank table
+-----------------
+CREATE TABLE `banking_system`.`bank` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(255) NOT NULL ,
+  PRIMARY KEY (`id`));
+
+create table account
+--------------------
+CREATE TABLE `banking_system`.`account` (
+`id` INT NOT NULL AUTO_INCREMENT ,
+`balance` DOUBLE NOT NULL DEFAULT 0.0 ,
+`pin` INT NOT NULL,
+`bankId` INT NOT NULL,
+`customerID` INT NOT NULL ,
+PRIMARY KEY (`id`), 
+FOREIGN KEY(bankId) REFERENCES bank(id), 
+FOREIGN KEY(customerID) REFERENCES customer(id));
+
+create table customer
+--------------------
+CREATE TABLE `banking_system`.`customer` (
+`id` INT NOT NULL AUTO_INCREMENT ,
+`first_name` VARCHAR(255) NOT NULL,
+`last_name` VARCHAR(255) NOT NULL,
+`email` VARCHAR(255) NOT NULL ,
+`address` VARCHAR(255) NOT NULL,
+`phone_number` LONG NOT NULL ,
+PRIMARY KEY (`id`) );
+
+create table transactions
+--------------------
+CREATE TABLE `banking_system`.`transaction` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`accountId` INT NOT NULL,
+`balance` DOUBLE NOT NULL ,
+`amount` DOUBLE NOT NULL,
+`type` VARCHAR(255) NOT NULL,
+`date` DATETIME NOT NULL DEFAULT NOW(),
+PRIMARY KEY (`id`), 
+FOREIGN KEY(accountId) REFERENCES account(id));
